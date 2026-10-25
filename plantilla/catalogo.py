@@ -98,9 +98,20 @@ PRODUCTS = [
       desc="Presionas el estropajo contra el dispensador y sale la cantidad justa de jabón. El fregadero queda más ordenado, gastas menos lavavajillas y el estropajo se seca en su sitio.",
       bullets=["Dosifica la cantidad justa","Se usa con una mano","Soporte para que el estropajo se seque","Rellenable con tu jabón"],
       hook="El gadget de fregadero que uso todos los días"),
+ dict(slug="calefactor-ceramico-dreo", task="Calentar una habitación en minutos", cat="climatizacion", name="Calefactor cerámico Dreo",
+      seo="Calefactor cerámico Dreo de bajo consumo con termostato y temporizador",
+      query="B0C9D4KL9D",
+      price="45 – 50 €",
+      short="Calor rápido y silencioso para el dormitorio, la oficina o el salón.",
+      desc="Calefactor cerámico PTC de 1500 W que calienta en pocos minutos. Tiene termostato para mantener la temperatura que elijas, temporizador de hasta 12 horas, modo Eco y modo ventilador para el verano. Se apaga solo si se vuelca o se sobrecalienta.",
+      bullets=["Termostato y temporizador de 12 h","Modo Eco y modo ventilador","Apagado automático si se vuelca o se sobrecalienta","Carcasa ignífuga V-0"],
+      hook="El calefactor que calienta mi cuarto en 5 minutos",
+      note="Foto de ambiente. Mira las fotos reales del modelo en Amazon."),
 ]
-CATS = {"organizacion":"Organización","cocina":"Cocina","limpieza":"Limpieza"}
+CATS = {"organizacion":"Organización","cocina":"Cocina","limpieza":"Limpieza","climatizacion":"Climatización"}
 def amazon_url(q):
     from urllib.parse import quote_plus
+    if len(q) == 10 and q.startswith("B0") and q.isalnum():  # código ASIN: enlace directo al producto
+        return "https://www.amazon.es/dp/" + q + ("?tag=" + AMAZON_TAG if AMAZON_TAG else "")
     u = "https://www.amazon.es/s?k=" + quote_plus(q)
     return u + ("&tag=" + AMAZON_TAG if AMAZON_TAG else "")
