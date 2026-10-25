@@ -64,7 +64,7 @@ PRODUCTS = [
  dict(slug="calefactor-ceramico-dreo", task="Calentar una habitación en minutos", cat="hogar", name="Calefactor cerámico Dreo",
       seo="Calefactor cerámico Dreo de bajo consumo con termostato y temporizador",
       query="B0C9D4KL9D",
-      price="45 – 50 €",
+      price="Ver precio en Amazon",
       short="Calor rápido y silencioso para el dormitorio, la oficina o el salón.",
       desc="Calefactor cerámico PTC de 1500 W que calienta en pocos minutos. Tiene termostato para mantener la temperatura que elijas, temporizador de hasta 12 horas, modo Eco y modo ventilador para el verano. Se apaga solo si se vuelca o se sobrecalienta.",
       bullets=["Termostato y temporizador de 12 h","Modo Eco y modo ventilador","Apagado automático si se vuelca o se sobrecalienta","Carcasa ignífuga V-0"],
