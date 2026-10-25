@@ -14,3 +14,9 @@ Estilo fijado por hamza: sin salir él, voz comercial de ElevenLabs «Bobby Your
 7. Portada: copia portada.html a productos/<p>/, cambia imagen, titular y precio, y saca la captura con Playwright (ver port.js).
 
 Requisitos: python3 con numpy y soundfile, ffmpeg, node con playwright.
+
+## Vídeos con clips reales de uso (desde el 25-10-2026)
+hamza quiere ver el producto en uso, no fotos. `clips.py` monta el vídeo con clips gratuitos de Pexels de fondo (uno por frase de la voz) y `ov.html` pone encima gancho, nombre, subtítulos y cierre.
+- Uso: `python3 clips.py usos/<producto> <carpeta_clips> salida.mp4` (la carpeta del producto necesita también voz.mp3).
+- Los clips se bajan con un despliegue de vista previa en Vercel (curl a pexels.com/download/video/ID/ + ffmpeg-static), troceados en base64. Copia guardada en /mnt/project-files/todohome/clips/.
+- Si hamza sube grabaciones suyas a Drive, se usan como clips en lugar de los de Pexels.
