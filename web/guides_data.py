@@ -1,0 +1,20 @@
+GUIDES = [
+ ("guias/limpiar-casa-menos-tiempo.html", "Limpiar la casa en menos tiempo", "Cómo limpiar la casa en menos tiempo", "Rutina y aparatos para tener el suelo y el baño limpios sin pasarte la tarde limpiando.", 625,
+  ["robot-friegasuelos-cecotec", "aspiradora-sin-cable-vactechpro", "alfombrilla-bano-diatomita"],
+  [("Rutina de 10 minutos al día", "Un repaso rápido cada día evita las limpiezas largas del fin de semana. Lo importante es la constancia, no la intensidad."),
+   ("Deja que el suelo se friegue solo", "Un robot friegasuelos se encarga del suelo mientras tú haces otra cosa. Recoge antes lo que haya por el suelo y déjalo trabajar."),
+   ("Aspira sin cables", "Con una aspiradora sin cable el repaso diario es tan fácil como coger una escoba: sin buscar enchufes ni arrastrar el cable por la casa."),
+   ("Baño sin charcos", "Una alfombrilla que absorbe el agua al momento evita charcos y tela húmeda, y el baño se mantiene limpio más tiempo.")]),
+ ("guias/cocinar-sano-rapido.html", "Cocinar sano y rápido", "Cómo cocinar más sano sin pasar horas en la cocina", "Trucos y aparatos sencillos para cocinar con menos aceite y menos tiempo.", 292,
+  ["vaporera-ufesa", "pulverizador-aceite-2-en-1", "tostadora-philips"],
+  [("Planifica la semana", "Decide el domingo qué vas a cenar cada día y compra en consecuencia. Te ahorras tiempo y dinero."),
+   ("Cocina al vapor", "Verduras, pescado o arroz al vapor quedan sabrosos y sin grasa. Con una vaporera eléctrica eliges el tiempo y no tienes que vigilarla."),
+   ("Controla el aceite", "Una aceitera con spray reparte una capa fina en la sartén, la plancha o la freidora de aire. Gastas mucho menos."),
+   ("Desayunos sin complicarte", "Pan del congelador y una tostadora con función descongelar: desayuno listo en un par de minutos.")]),
+ ("guias/casa-acogedora-invierno.html", "Casa ordenada y acogedora en invierno", "Ideas para una casa ordenada y acogedora este invierno", "Pequeños cambios para entrar en casa y sentirte a gusto cuando llega el frío.", 999,
+  ["perchero-vasagle", "calefactor-ceramico-dreo", "alfombrilla-bano-diatomita"],
+  [("Una entrada despejada", "Un perchero de pie junto a la puerta evita abrigos en las sillas y bolsos por el suelo. Todo a mano al salir."),
+   ("Calor donde lo necesitas", "Un calefactor pequeño calienta la habitación en la que estás sin encender la calefacción de toda la casa."),
+   ("Detalles que se notan", "Mantas a mano, luz cálida y un baño sin charcos hacen que la casa se sienta más acogedora.")]),
+]
+GUIDE_ALT = {999: "Cuencos y frutos secos ordenados sobre una mesa de madera oscura", 292: "Verduras, cebolla roja y pimienta sobre una tabla de cortar", 625: "Mesa de madera con sillas blancas junto a grandes ventanales"}
