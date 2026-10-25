@@ -1,0 +1,78 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:A;src:url(archivo.woff2) format("woff2");font-weight:100 900}
+*{box-sizing:border-box;margin:0}
+body{width:1080px;height:1920px;overflow:hidden;background:#111;font-family:A,sans-serif;color:#fff}
+.s{position:absolute;inset:0;overflow:hidden;opacity:0}
+.full{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover}
+.shade{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.1) 40%,rgba(0,0,0,.65))}
+.big{position:absolute;left:80px;right:80px;font-weight:800;line-height:1.02;letter-spacing:-.02em}
+.card{position:absolute;background:#fff;border-radius:40px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.45)}
+.card img{width:100%;height:100%;object-fit:cover}
+.pill{position:absolute;display:inline-flex;align-items:center;gap:18px;background:#fff;color:#1A1C1E;border-radius:999px;padding:26px 40px;font-weight:700;font-size:54px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.pill b{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#1F7A47;color:#fff;font-size:38px}
+.cap{position:absolute;left:60px;right:60px;top:1180px;text-align:center;font-weight:800;font-size:92px;line-height:1.05;letter-spacing:-.01em;-webkit-text-stroke:14px #000;paint-order:stroke fill}
+.cap span{display:inline-block;margin:0 .12em}
+.cap .k{color:#4BE08A}
+#bar{position:absolute;top:0;left:0;height:12px;background:#1F7A47;z-index:9}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:8}
+.logo{display:flex;align-items:center;gap:26px;font-weight:800;font-size:84px;letter-spacing:.01em}
+.logo svg{width:120px;height:120px}
+</style></head><body>
+<div id="bar"></div><div id="flash"></div>
+<div class="s" id="s1"><img class="full" id="i1" src="__IMG__"><div class="shade"></div>
+<div class="big" id="h1" style="top:330px;font-size:__HOOKSIZE__px">__HOOK__</div></div>
+<div class="s" id="s2" style="background:#EEF0EE"><div class="card" id="c2" style="left:120px;top:250px;width:840px;height:1040px"><img src="__IMG__"></div>
+<div class="big" id="h2" style="top:1420px;color:#1A1C1E;font-size:96px;text-align:center">__NAME__</div></div>
+<div class="s" id="s3"><img class="full" id="i3" src="__IMG__" style="object-position:__POS3__"><div class="shade"></div>__STEPS__</div>
+<div class="s" id="s4" style="background:#1F7A47"><div class="big" style="top:400px;text-align:center;font-size:104px">__STAT_TOP__</div>
+<div class="big" id="stat" style="top:600px;text-align:center;font-size:230px">__STAT_BIG__</div>
+<div class="big" style="top:960px;text-align:center;font-size:70px;font-weight:600;opacity:.9">__STAT_SUB__</div></div>
+<div class="s" id="s5"><img class="full" id="i5" src="__IMG__" style="object-position:__POS5__"><div class="shade"></div>__BENS__</div>
+<div class="s" id="s6" style="background:#EEF0EE;color:#1A1C1E"><div class="card" id="c6" style="left:240px;top:200px;width:600px;height:600px"><img src="__IMG__"></div>
+<div class="big" style="top:860px;text-align:center;font-size:72px;font-weight:600">__PRICE_PRE__</div>
+<div class="big" id="pr" style="top:940px;text-align:center;font-size:250px;color:#1F7A47">__PRICE__</div>
+<div class="big" style="top:1440px;text-align:center;font-size:40px;font-weight:500;color:#565C61">Precio orientativo en Amazon</div></div>
+<div class="s" id="s7" style="background:#1A1C1E"><div id="lg" style="position:absolute;top:330px;left:0;right:0;display:flex;justify-content:center"><div class="logo"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#fff"/><path d="M15 31 32 16l17 15h-4v17H19V31z" fill="#1A1C1E"/><rect x="28" y="37" width="8" height="11" rx="2" fill="#1F7A47"/></svg>TODOHOME</div></div>
+<div class="big" id="h7" style="top:560px;text-align:center;font-size:110px">Enlace en la bio</div>
+<div class="big" id="u7" style="top:720px;text-align:center;font-size:52px;font-weight:600;color:#4BE08A">todohome-es.vercel.app</div>
+<div id="th" style="position:absolute;top:860px;left:0;right:0;display:flex;justify-content:center;gap:28px">__THUMBS__</div>
+</div>
+<div class="cap" id="cap"></div>
+<script>
+const TL = __TLJ__, D = __DUR__, ST = __ST__;
+const KEY = __KEY__;
+const S = ST.map((a,i)=>["s"+(i+1),a,i<6?ST[i+1]:99]);
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)), eo=x=>1-Math.pow(1-cl(x),4), bk=x=>{x=cl(x);const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const $=id=>document.getElementById(id), el=id=>document.getElementById(id);
+function words(){const out=[];TL.forEach(l=>{const w=l.text.split(" ");const tot=w.reduce((a,x)=>a+x.length+1,0);let t=l.t0;w.forEach(x=>{const d=(l.t1-l.t0)*(x.length+1)/tot;out.push({w:x,t0:t,t1:t+d,line:l});t+=d})});return out}
+const W=words();
+function pills(pref,a,b,off){let k=1,ids=[];while(el(pref+k)){ids.push(pref+k);k++}const n=ids.length;ids.forEach((id,i)=>{const s=a+.05+i*(b-a-.4)/n;el(id).style.transform=`translateX(${(1-bk((T-s)/.45))*off}px)`})}
+let T=0;
+window.seek=function(t){T=t;
+ $("bar").style.width=(t/D*100)+"%";
+ let fl=0;
+ S.forEach(([id,a,b])=>{const e=$(id),on=t>=a&&t<b;e.style.opacity=on?1:0;const k=(t-a);
+  if(on&&k<.35)fl=Math.max(fl,(.35-k)/.35*.5*(a>0?1:0));
+  if(!on)return; const ein=eo(k/.45);
+  e.style.transform=`scale(${1.12-.12*ein})`;e.style.filter=`blur(${(1-ein)*14}px)`;});
+ $("flash").style.opacity=fl;
+ const [a1,a2,a3,a4,a5,a6,a7]=ST;
+ $("i1").style.transform=`scale(${1+t*.04})`;$("h1").style.transform=`translateY(${(1-bk((t-.15)/.6))*60}px)`;$("h1").style.opacity=cl((t-.1)/.3);
+ $("c2").style.transform=`rotate(${-3+3*eo((t-a2)/.6)}deg) translateY(${(1-eo((t-a2)/.6))*200}px)`;$("h2").style.opacity=cl((t-a2-.35)/.3);
+ $("i3").style.transform=`scale(${1.05+(t-a3)*.03}) translateY(${-(t-a3)*14}px)`;
+ pills("p3",a3,a4,-900);
+ $("stat").style.transform=`scale(${.4+.6*bk((t-a4-.15)/.45)})`;$("stat").style.opacity=cl((t-a4-.1)/.15);
+ $("i5").style.transform=`scale(${1.18-(t-a5)*.03})`;
+ pills("p5",a5,a6,-1000);
+ $("c6").style.transform=`scale(${.7+.3*bk((t-a6)/.5)})`;$("pr").style.transform=`scale(${.4+.6*bk((t-a6-.3)/.45)})`;$("pr").style.opacity=cl((t-a6-.25)/.15);
+ $("lg").style.transform=`translateY(${(1-eo((t-a7-.05)/.5))*80}px)`;$("lg").style.opacity=cl((t-a7-.05)/.4);
+ $("h7").style.opacity=cl((t-a7-.25)/.3);$("u7").style.opacity=cl((t-a7-.7)/.3);
+ $("th").style.transform=`translateY(${(1-eo((t-a7-1.1)/.6))*300}px)`;$("th").style.opacity=cl((t-a7-1.1)/.4);
+ const cur=W.findIndex(x=>t>=x.t0&&t<x.t1+.25&&x.line);let html="";
+ if(cur>=0){const ln=W[cur].line,lw=W.filter(x=>x.line===ln),i=lw.indexOf(W[cur]),g=Math.floor(i/3)*3;
+  lw.slice(g,g+3).forEach((x,j)=>{const vis=t>=x.t0;const clean=x.w.toLowerCase().replace(/[^a-záéíóúñ]/g,"");
+   html+=`<span class="${KEY.includes(clean)?"k":""}" style="opacity:${vis?1:0};transform:scale(${vis?.6+.4*bk((t-x.t0)/.25):.6})">${x.w}</span>`});}
+ $("cap").innerHTML= t<a2||(t>=a4&&t<a5)||t>=a6? "" : html;
+};
+seek(0);
+</script></body></html>
